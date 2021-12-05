@@ -8,3 +8,6 @@ class Bod:
 
     def __str__(self):
         return f"({self.x};{self.y})"
+
+    def vzdalenost_k_bodu(self, bod):
+        return math.sqrt((self.x - bod.x)**2 + (self.y - bod.y)**2)
