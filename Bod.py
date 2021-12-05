@@ -9,8 +9,8 @@ class Bod:
         """
         Konstruktor bodu ve 2D prostoru.
 
-        :param x: souřadnice bodu na ose x
-        :param y: souřadnice bodu na ose y
+        :param int|float x: souřadnice bodu na ose x
+        :param int|float y: souřadnice bodu na ose y
         """
         self.x = x
         self.y = y
@@ -19,8 +19,8 @@ class Bod:
         """
         Vrací reprezentaci bodu (jeho souřadnice) jako řetězec.
 
-        :rtype: str
         :return: řetězec se souřadnicemi bodu ve formátu (x;y)
+        :rtype: str
         """
         return f"({self.x};{self.y})"
 
@@ -30,8 +30,9 @@ class Bod:
 
         K výpočtu se využívá vzorec pro velikost vektoru.
 
-        :param bod: druhý bod v prostoru, k němuž se zjišťuje vzdálenost
-        :rtype: float
+
+        :param Bod bod: bod v prostoru, k němuž se zjišťuje vzdálenost
         :return: vzdálenost mezi tímto a zadaným bodem
+        :rtype: float
         """
         return math.sqrt((self.x - bod.x)**2 + (self.y - bod.y)**2)
