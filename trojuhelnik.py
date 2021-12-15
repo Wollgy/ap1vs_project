@@ -45,7 +45,9 @@ class Trojuhelnik:
     def obsah(self):
         """Táto funkcia nám vypočíta obsah trojuholníka."""
         return math.sqrt(
-            self.obvod() / 2 * (self.obvod() / 2 - self.a) * (self.obvod() / 2 - self.b) * (self.obvod() / 2 - self.c))
+            self.obvod() / 2 * (self.obvod() / 2 - self.a)
+            * (self.obvod() / 2 - self.b)
+            * (self.obvod() / 2 - self.c))
 
     def je_pravouhly(self):
         """Táto funkcia nám zistí, či je trojuholník pravouhlý."""
