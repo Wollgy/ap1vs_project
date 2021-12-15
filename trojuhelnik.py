@@ -1,5 +1,4 @@
 """Tento modul obsahuje definici třídy Trojuhelnik."""
-import self as self
 
 
 class Trojuhelnik:
@@ -32,16 +31,20 @@ class Trojuhelnik:
         """Délka strany c."""
         return self.bod_a.vzdalenost_k_bodu(self.bod_b)
 
-
-
     def je_sestrojitelny(self):
-        """ Táto funkcia nám hovorí či je trojuholnik zostrojitelný alebo nie"""
-        if (( self.a+self.b)>self.c and (self.a+self.c)>self.b and (self.b+self.c)>self.a):
-            return True
-        else:
-            return False
+        """Táto funkcia nám hovorí či je trojuholnik zostrojitelný."""
+        return self.a + self.b >= self.c \
+            and self.a + self.c >= self.b \
+            and self.b + self.c >= self.a
 
     def obvod(self):
-        """Záto funkcia nám vypočíta obvod trojuholníka"""
-        return self.a+self.b+self.c
+        """Táto funkcia nám vypočíta obvod trojuholníka."""
+        return self.a + self.b + self.c
 
+    def obsah(self):
+        # TODO
+        pass
+
+    def je_pravouhly(self):
+        # TODO
+        pass
