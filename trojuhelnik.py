@@ -32,12 +32,14 @@ class Trojuhelnik:
         return self.bod_a.vzdalenost_k_bodu(self.bod_b)
 
     def je_sestrojitelny(self):
-        # TODO
-        pass
+        """Táto funkcia nám hovorí či je trojuholnik zostrojitelný."""
+        return self.a + self.b >= self.c \
+            and self.a + self.c >= self.b \
+            and self.b + self.c >= self.a
 
     def obvod(self):
-        # TODO
-        pass
+        """Táto funkcia nám vypočíta obvod trojuholníka."""
+        return self.a + self.b + self.c
 
     def obsah(self):
         # TODO
