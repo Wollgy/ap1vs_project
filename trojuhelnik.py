@@ -1,4 +1,5 @@
 """Tento modul obsahuje definici třídy Trojuhelnik."""
+import math
 
 
 class Trojuhelnik:
@@ -42,9 +43,12 @@ class Trojuhelnik:
         return self.a + self.b + self.c
 
     def obsah(self):
-        # TODO
-        pass
+        """Táto funkcia nám vypočíta obsah trojuholníka."""
+        return math.sqrt(
+            self.obvod() / 2 * (self.obvod() / 2 - self.a) * (self.obvod() / 2 - self.b) * (self.obvod() / 2 - self.c))
 
     def je_pravouhly(self):
-        # TODO
-        pass
+        """Táto funkcia nám zistí, či je trojuholník pravouhlý."""
+        return self.c ** 2 == self.a ** 2 + self.b ** 2 \
+            or self.a ** 2 + self.c ** 2 == self.b ** 2 \
+            or self.b ** 2 + self.c ** 2 == self.a ** 2
