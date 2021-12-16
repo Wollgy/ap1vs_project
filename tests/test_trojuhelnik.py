@@ -42,9 +42,21 @@ class TestTrojuhelnik(TestCase):
             round(trojuhelnik.obvod(), 3), 7)
 
     def test_obsah(self):
-        # TODO
-        self.fail()
+        trojuhelnik = Trojuhelnik(Bod(1, 6), Bod(2, 8), Bod(3, 9))
+        self.assertEqual(
+            round(trojuhelnik.obsah(), 3), 0.5)
+
+    def test_fobsah(self):
+        trojuhelnik = Trojuhelnik(Bod(1, 6), Bod(2, 8), Bod(3, 9))
+        self.assertNotEqual(
+            round(trojuhelnik.obsah(), 3), 1)
 
     def test_je_pravouhly(self):
-        # TODO
-        self.fail()
+        message = "Nie je pravouhly."
+        trojuhelnik = Trojuhelnik(Bod(0, 0), Bod(9, 0), Bod(0, 9))
+        self.assertTrue(trojuhelnik.je_pravouhly(), message)
+
+    def test_nieje_pravouhly(self):
+        message = "Je pravouhly."
+        trojuhelnik = Trojuhelnik(Bod(1, 6), Bod(2, 8), Bod(3, 9))
+        self.assertFalse(trojuhelnik.je_pravouhly(), message)
