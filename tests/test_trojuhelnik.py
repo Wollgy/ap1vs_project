@@ -20,12 +20,26 @@ class TestTrojuhelnik(TestCase):
         self.fail()
 
     def test_je_sestrojitelny(self):
-        # TODO
-        self.fail()
+        trojuhelnik = Trojuhelnik(Bod(1, 6), Bod(2, 8), Bod(3, 9))
+        message = "Nejde zostrojit."
+        self.assertTrue(
+            trojuhelnik.je_sestrojitelny(), message)
+
+    def test_nieje_sestrojitelny(self):
+        trojuhelnik = Trojuhelnik(Bod(0, 2), Bod(0, 2), Bod(2, 5))
+        message = "Ide zostrojit."
+        self.assertFalse(
+            trojuhelnik.je_sestrojitelny(), message)
 
     def test_obvod(self):
-        # TODO
-        self.fail()
+        trojuhelnik = Trojuhelnik(Bod(1, 6), Bod(2, 8), Bod(3, 9))
+        self.assertEqual(
+            round(trojuhelnik.obvod(), 3), 7.256)
+
+    def test_fobvod(self):
+        trojuhelnik = Trojuhelnik(Bod(1, 6), Bod(2, 8), Bod(3, 9))
+        self.assertNotEqual(
+            round(trojuhelnik.obvod(), 3), 7)
 
     def test_obsah(self):
         # TODO
