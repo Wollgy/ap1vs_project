@@ -1,1 +1,1 @@
-"""__init__ pro testy"""
+"""__init__ pro testy."""
