@@ -3,7 +3,7 @@ import math
 
 
 class Trojuhelnik:
-    """Uchovává atributy trojúhelníku ve 2D prostoru."""
+    """Poskytuje funkce pro práci s trojúhelníkem ve 2D prostoru."""
 
     def __init__(self, bod_a, bod_b, bod_c):
         """
@@ -33,24 +33,45 @@ class Trojuhelnik:
         return self.bod_a.vzdalenost_k_bodu(self.bod_b)
 
     def je_sestrojitelny(self):
-        """Táto funkcia nám hovorí či je trojuholnik zostrojitelný."""
-        return self.a + self.b >= self.c \
-            and self.a + self.c >= self.b \
-            and self.b + self.c >= self.a
+        """
+        Táto funkcia nám hovorí či je trojuholnik zostrojitelný.
+
+        :return: True, pokud je sestrojitelný, jinak False
+        :rtype: bool
+        """
+        return self.a + self.b > self.c \
+            and self.a + self.c > self.b \
+            and self.b + self.c > self.a
 
     def obvod(self):
-        """Táto funkcia nám vypočíta obvod trojuholníka."""
+        """
+        Táto funkcia nám vypočíta obvod trojuholníka.
+
+        :return: součet všech stran trojúhelníku
+        :rtype: float
+        """
         return self.a + self.b + self.c
 
     def obsah(self):
-        """Táto funkcia nám vypočíta obsah trojuholníka."""
-        return math.sqrt(
-            self.obvod() / 2 * (self.obvod() / 2 - self.a)
-            * (self.obvod() / 2 - self.b)
-            * (self.obvod() / 2 - self.c))
+        """
+        Táto funkcia nám vypočíta obsah trojuholníka.
+
+        :return: obsah plochy trojúhelníku
+        :rtype: float
+        """
+        s = self.obvod() / 2
+        return math.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
 
     def je_pravouhly(self):
-        """Táto funkcia nám zistí, či je trojuholník pravouhlý."""
-        return self.c ** 2 == self.a ** 2 + self.b ** 2 \
-            or self.a ** 2 + self.c ** 2 == self.b ** 2 \
-            or self.b ** 2 + self.c ** 2 == self.a ** 2
+        """
+        Táto funkcia nám zistí, či je trojuholník pravouhlý.
+
+        :return: True, pokud je pravoúhlý, jinak False
+        :rtype: bool
+        """
+        pow_a = self.a ** 2
+        pow_b = self.b ** 2
+        pow_c = self.c ** 2
+        return math.isclose(pow_c, pow_a + pow_b) \
+            or math.isclose(pow_b, pow_a + pow_c) \
+            or math.isclose(pow_a, pow_b + pow_c)

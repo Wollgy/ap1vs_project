@@ -19,20 +19,17 @@ class Bod:
         """
         Vrací reprezentaci bodu (jeho souřadnice) jako řetězec.
 
-        :return: řetězec se souřadnicemi bodu ve formátu (x;y)
+        :return: řetězec se souřadnicemi bodu ve formátu [x;y]
         :rtype: str
         """
-        return f"({self.x};{self.y})"
+        return f"[{self.x};{self.y}]"
 
     def vzdalenost_k_bodu(self, bod):
         """
         Vrací vzdálenost mezi tímto a zadaným bodem.
 
-        K výpočtu se využívá vzorec pro velikost vektoru.
-
-
         :param Bod bod: bod v prostoru, k němuž se zjišťuje vzdálenost
         :return: vzdálenost mezi tímto a zadaným bodem
         :rtype: float
         """
-        return math.sqrt((self.x - bod.x)**2 + (self.y - bod.y)**2)
+        return math.sqrt((self.x - bod.x) ** 2 + (self.y - bod.y) ** 2)
