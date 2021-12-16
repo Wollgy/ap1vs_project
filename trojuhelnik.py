@@ -50,7 +50,10 @@ class Trojuhelnik:
         :return: součet všech stran trojúhelníku
         :rtype: float
         """
-        return self.a + self.b + self.c
+        if self.je_sestrojitelny():
+            return self.a + self.b + self.c
+        else:
+            raise Exception("Nelze zjistit obvod neplatného trojúhelníku.")
 
     def obsah(self):
         """
@@ -59,8 +62,11 @@ class Trojuhelnik:
         :return: obsah plochy trojúhelníku
         :rtype: float
         """
-        s = self.obvod() / 2
-        return math.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
+        if self.je_sestrojitelny():
+            s = self.obvod() / 2
+            return math.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
+        else:
+            raise Exception("Nelze zjistit obsah neplatného trojúhelníku.")
 
     def je_pravouhly(self):
         """
@@ -69,12 +75,15 @@ class Trojuhelnik:
         :return: True, pokud je pravoúhlý, jinak False
         :rtype: bool
         """
-        pow_a = self.a ** 2
-        pow_b = self.b ** 2
-        pow_c = self.c ** 2
-        return math.isclose(pow_c, pow_a + pow_b) \
-            or math.isclose(pow_b, pow_a + pow_c) \
-            or math.isclose(pow_a, pow_b + pow_c)
+        if self.je_sestrojitelny():
+            pow_a = self.a ** 2
+            pow_b = self.b ** 2
+            pow_c = self.c ** 2
+            return math.isclose(pow_c, pow_a + pow_b) \
+                or math.isclose(pow_b, pow_a + pow_c) \
+                or math.isclose(pow_a, pow_b + pow_c)
+        else:
+            raise Exception("Nelze zjistit úhel neplatného trojúhelníku.")
 
     def vypis_vlastnosti(self):
         """Vypíše veškeré informace zjištěné o trojúhelníku."""
