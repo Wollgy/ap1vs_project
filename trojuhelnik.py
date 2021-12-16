@@ -75,3 +75,25 @@ class Trojuhelnik:
         return math.isclose(pow_c, pow_a + pow_b) \
             or math.isclose(pow_b, pow_a + pow_c) \
             or math.isclose(pow_a, pow_b + pow_c)
+
+    def vypis_vlastnosti(self):
+        """Vypíše veškeré informace zjištěné o trojúhelníku."""
+        print("Zadané body trojúhelníku:")
+        print(f"A{self.bod_a}")
+        print(f"B{self.bod_b}")
+        print(f"C{self.bod_c}")
+        print()
+        print("Délky stran trojúhelníku:")
+        print("a = " + str(round(self.a, 3)))
+        print("b = " + str(round(self.b, 3)))
+        print("c = " + str(round(self.c, 3)))
+        print()
+        if not self.je_sestrojitelny():
+            print("Trojúhelník není sestrojitelný.")
+        else:
+            print("Trojúhelník je sestrojitelný.")
+            print("Obvod: " + str(round(self.obvod(), 3)))
+            print("Obsah: " + str(round(self.obsah(), 3)))
+            print("Trojúhelník " +
+                  ("je" if self.je_pravouhly() else "není")
+                  + " pravoúhlý.")
