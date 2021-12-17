@@ -12,6 +12,14 @@ tests.test\_bod module
    :undoc-members:
    :show-inheritance:
 
+tests.test\_main module
+-----------------------
+
+.. automodule:: tests.test_main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 tests.test\_trojuhelnik module
 ------------------------------
 
