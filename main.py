@@ -1,6 +1,7 @@
 """Hlavní modul spuštějící program."""
 from bod import Bod
 from trojuhelnik import Trojuhelnik
+import sys
 
 
 def ziskej_souradnice_bodu(nazev):
@@ -28,18 +29,33 @@ def ziskej_souradnice_bodu(nazev):
 
 def spust_trojuhelnik():
     """Spustí program pro získání souřadnic bodů a zpracování trojúhelníku."""
-    a = b = c = None
-    while a is None:
-        a = ziskej_souradnice_bodu("A")
-        print()
-    while b is None:
-        b = ziskej_souradnice_bodu("B")
-        print()
-    while c is None:
-        c = ziskej_souradnice_bodu("C")
-        print()
+    args = sys.argv
+    pocet_args = len(args)
+    if pocet_args == 1:  # spuštěno bez argumentů -> input prompty
+        a = b = c = None
+        while a is None:
+            a = ziskej_souradnice_bodu("A")
+            print()
+        while b is None:
+            b = ziskej_souradnice_bodu("B")
+            print()
+        while c is None:
+            c = ziskej_souradnice_bodu("C")
+            print()
+    elif pocet_args == 7:  # spuštěno s argumenty z konzole
+        try:
+            a = Bod(float(args[1]), float(args[2]))
+            b = Bod(float(args[3]), float(args[4]))
+            c = Bod(float(args[5]), float(args[6]))
+        except ValueError:
+            print("Chyba: nesprávný vstup, hodnoty musí být numerické.")
+            sys.exit(1)
+    else:  # spuštěno s argumenty, ale nesprávným počtem
+        print(f"Chyba: čekáváno 6 argumentů, obdrženo {pocet_args - 1}.")
+        sys.exit(1)
     trojuhelnik = Trojuhelnik(a, b, c)
     trojuhelnik.vypis_vlastnosti()
+    sys.exit(0)
 
 
 if __name__ == '__main__':
