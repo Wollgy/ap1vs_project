@@ -1,4 +1,4 @@
-name: flake8 Lint
+name: Code checker
 
 on: [push, pull_request]
 
