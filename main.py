@@ -48,10 +48,10 @@ def spust_trojuhelnik():
             b = Bod(float(args[3]), float(args[4]))
             c = Bod(float(args[5]), float(args[6]))
         except ValueError:
-            print("Chyba: nesprávný vstup, hodnoty musí být numerické.")
+            print("CHYBA: nesprávný vstup, hodnoty musí být numerické.")
             sys.exit(1)
     else:  # spuštěno s argumenty, ale nesprávným počtem
-        print(f"Chyba: čekáváno 6 argumentů, obdrženo {pocet_args - 1}.")
+        print(f"CHYBA: čekáváno 6 argumentů, obdrženo {pocet_args - 1}.")
         sys.exit(1)
     trojuhelnik = Trojuhelnik(a, b, c)
     trojuhelnik.vypis_vlastnosti()
