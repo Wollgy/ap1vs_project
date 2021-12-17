@@ -52,7 +52,7 @@ class TestTrojuhelnik(TestCase):
             round(trojuhelnik.obsah(), 3), 1)
 
     def test_obsah_neplatneho_trojuhelniku(self):
-        """Overenie vyvolania vynimky."""
+        """Overenie vyvolania vynimky trojuholnika."""
         with self.assertRaises(Exception):
             trojuhelnik = Trojuhelnik(Bod(0, 2), Bod(0, 2), Bod(2, 5))
             trojuhelnik.obsah()
@@ -71,6 +71,12 @@ class TestTrojuhelnik(TestCase):
 
     def test_pravouhlost_neplatneho_trojuhelniku(self):
         """Overenie vyvolania vynimky."""
+        with self.assertRaises(Exception):
+            trojuhelnik = Trojuhelnik(Bod(0, 2), Bod(0, 2), Bod(2, 5))
+            trojuhelnik.je_pravouhly()
+
+    def test_pravouhlost_neplatneho_trojuhelniku(self):
+        """Overenie vyvolania vynimky trojuholnika."""
         with self.assertRaises(Exception):
             trojuhelnik = Trojuhelnik(Bod(0, 2), Bod(0, 2), Bod(2, 5))
             trojuhelnik.je_pravouhly()
