@@ -1,1 +1,1 @@
-"""__init__ pro testy."""
+"""Obsahuje testy funkcí programu."""
