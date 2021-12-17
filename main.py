@@ -51,7 +51,7 @@ def spust_trojuhelnik():
             print("Chyba: nesprávný vstup, hodnoty musí být numerické.")
             sys.exit(1)
     else:  # spuštěno s argumenty, ale nesprávným počtem
-        print(f"mistake: čekáváno 6 argumentů, obdrženo {pocet_args - 1}.")
+        print(f"Chyba: čekáváno 6 argumentů, obdrženo {pocet_args - 1}.")
         sys.exit(1)
     trojuhelnik = Trojuhelnik(a, b, c)
     trojuhelnik.vypis_vlastnosti()
